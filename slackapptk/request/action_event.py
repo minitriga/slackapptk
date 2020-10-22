@@ -55,6 +55,14 @@ def BlockActionEvent(data) -> ActionEvent:
             value=a_val
         )
 
+    elif a_type in ['plain_text_input']:
+        a_val = data['value']
+
+        return ActionEvent(
+            type=a_type, data=data, id=a_id,
+            value=a_val
+        )
+
     raise SlackAppTKError(
         f"Unhangled BlockActionEvent type: {a_type}"
     )
